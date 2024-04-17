@@ -8,7 +8,7 @@ def merge_images_with_itself(input_folder, output_folder):
 
     # Iterate over the files in the input folder
     for filename in os.listdir(input_folder):
-        if filename.endswith('.png') or filename.endswith('.jpg'):
+        if filename.endswith('.png'):
             # Open the original image
             original_image_path = os.path.join(input_folder, filename)
             original_image = Image.open(original_image_path)
@@ -17,7 +17,7 @@ def merge_images_with_itself(input_folder, output_folder):
             width, height = original_image.size
 
             # Create a new blank image with three times the width of the original image
-            merged_image = Image.new('RGB', (width * 3, height))
+            merged_image = Image.new('ARGB', (width * 3, height))
 
             # Merge the original image with itself three times horizontally
             for i in range(3):

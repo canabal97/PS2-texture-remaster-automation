@@ -24,7 +24,7 @@ def merge_images_in_folder(input_folder, output_folder, num_copies=9):
             total_height = height * grid_size
 
             # Create a new blank image with the calculated size
-            merged_image = Image.new('RGB', (total_width, total_height))
+            merged_image = Image.new('ARGB', (total_width, total_height))
 
             # Merge images in a grid
             for i in range(grid_size):
