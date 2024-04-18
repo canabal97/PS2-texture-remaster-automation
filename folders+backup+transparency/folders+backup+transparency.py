@@ -25,7 +25,7 @@ def copy_images_to_originals():
     # Iterate through each file
     for file in files:
         # Check if the file is an image (you might need to adjust the condition based on your image file extensions)
-        if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
+        if file.lower().endswith(('.png')):
             # Copy the image file to the 'originals' folder
             shutil.copy(file, 'originals')
 
@@ -71,7 +71,6 @@ create_folders()
 
 
 copy_images_to_originals()
-print("Images copied to 'originals' folder successfully!")
 
 
 script_directory = os.path.dirname(__file__)
@@ -79,3 +78,5 @@ input_folder = script_directory
 output_folder = script_directory
 
 paste_copies_on_top_for_folder(input_folder, output_folder)
+
+print("Task ended successfully!")
