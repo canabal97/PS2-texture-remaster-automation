@@ -8,7 +8,7 @@ def merge_images_in_folder(input_folder, output_folder, num_copies=9):
 
     # Iterate over the files in the input folder
     for filename in os.listdir(input_folder):
-        if filename.endswith('.png') or filename.endswith('.jpg'):
+        if filename.endswith('.png'):
             # Open the original image
             original_image_path = os.path.join(input_folder, filename)
             original_image = Image.open(original_image_path)
