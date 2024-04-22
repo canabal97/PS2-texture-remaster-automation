@@ -2,10 +2,7 @@ import os
 from PIL import Image
 
 def merge_images_in_folder(input_folder, output_folder, num_copies=9):
-    # Create the output folder if it doesn't exist
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
-
+    
     # Iterate over the files in the input folder
     for filename in os.listdir(input_folder):
         if filename.endswith('.png'):
@@ -24,7 +21,7 @@ def merge_images_in_folder(input_folder, output_folder, num_copies=9):
             total_height = height * grid_size
 
             # Create a new blank image with the calculated size
-            merged_image = Image.new('ARGB', (total_width, total_height))
+            merged_image = Image.new('RGBA', (total_width, total_height))
 
             # Merge images in a grid
             for i in range(grid_size):
@@ -36,13 +33,13 @@ def merge_images_in_folder(input_folder, output_folder, num_copies=9):
                     merged_image.paste(original_image.copy(), paste_position)
 
             # Save the merged image
-            output_filename = os.path.splitext(filename)[0]
+            output_filename = os.path.splitext(filename)[0] + ".png"
             output_path = os.path.join(output_folder, output_filename)
             merged_image.save(output_path)
 
 # Example usage
 script_directory = os.path.dirname(__file__)
-input_folder = script_directory
-output_folder = 'triple/triple-grid'
+input_folder = os.path.join("triple", "triple-grid")
+output_folder = os.path.join("triple", "triple-grid")
 
 merge_images_in_folder(input_folder, output_folder, num_copies=9)
